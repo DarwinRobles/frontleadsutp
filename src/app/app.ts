@@ -8,5 +8,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('leadsfront');
+  protected readonly title = signal('Lead UTP Tarea');
 }
