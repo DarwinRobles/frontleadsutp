@@ -1,12 +1,21 @@
-FROM node:22-alpine
+FROM node:22.12-alpine AS builder
 
 WORKDIR /app
 
-COPY package.json package-lock.json ./
-
+COPY package*.json ./
 RUN npm ci
 
 COPY . .
+RUN npm run build --configuration=production
 
-# build
-RUN npm run build
+
+FROM nginx:alpine
+
+
+
+COPY --from=builder /app/dist/leadsfront /usr/share/nginx/html
+
+
+EXPOSE 4000
+
+CMD ["nginx", "-g", "daemon off;"]

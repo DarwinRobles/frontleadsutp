@@ -1,0 +1,15 @@
+services:
+  frontenleads:
+    image: darwinrobles/leadsfront:latest
+    pull_policy: always
+    container_name: leadsfront-contentent
+    restart: always
+    environment:
+      - PORT=4000
+      - HOST=0.0.0.0
+    networks:
+      - dokploy-network
+
+networks:
+  dokploy-network:
+    external: true
