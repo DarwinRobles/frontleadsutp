@@ -3,10 +3,11 @@ import { LeadReport } from '../../core/models/report.model';
 import { ReportService } from '../../core/services/report.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { Client } from './comoponents/client/client';
 
 @Component({
   selector: 'app-reports',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, Client],
   templateUrl: './reports.html',
   styleUrl: './reports.css',
 })

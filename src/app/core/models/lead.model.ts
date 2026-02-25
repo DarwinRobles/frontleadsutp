@@ -12,3 +12,10 @@ export interface ApiResponse<T> {
   message: string;
   success: boolean;
 }
+
+export interface UpdateLead {
+  name: string;
+  phone: string;
+  email: string;
+  estado: string;
+}

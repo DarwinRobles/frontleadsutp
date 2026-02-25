@@ -11,8 +11,8 @@ export class LeadService {
 
   constructor(private http: HttpClient) { }
 
-  getLeads(): Observable<ApiResponse<LeadModel>[]> {
-    return this.http.get<ApiResponse<LeadModel>[]>(`${environment.apiUrl}/api/leads/all`);
+  getLeads(): Observable<ApiResponse<LeadModel[]>> {
+    return this.http.get<ApiResponse<LeadModel[]>>(`${environment.apiUrl}/api/leads/all`);
   }
 
   getLead(id: string): Observable<ApiResponse<LeadModel>> {
@@ -23,11 +23,11 @@ export class LeadService {
     return this.http.post<ApiResponse<LeadModel>>(`${environment.apiUrl}/api/leads/crear`, lead);
   }
 
-  updateLead(lead: LeadModel): Observable<ApiResponse<LeadModel>> {
-    return this.http.put<ApiResponse<LeadModel>>(`${environment.apiUrl}/api/leads/acutualizar/${lead.id}`, lead);
+  updateLead(id: string, estado: string): Observable<ApiResponse<LeadModel>> {
+    return this.http.put<ApiResponse<LeadModel>>(`${environment.apiUrl}/api/leads/update/${id}`, { estado });
   }
 
   deleteLead(id: string): Observable<any> {
-    return this.http.delete<any>(`${environment.apiUrl}/api/leads/eliminar/${id}`);
+    return this.http.delete<any>(`${environment.apiUrl}/api/leads/delete/${id}`);
   }
 }
